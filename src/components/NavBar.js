@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand to='/' as={Link}>Navbar scroll</Navbar.Brand>
+        <Navbar.Brand to='/' as={Link}>Our Store</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
