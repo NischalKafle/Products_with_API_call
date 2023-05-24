@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from '@chakra-ui/react'
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { add } from '../store/cartSlice';
 
 function Product() {
 const dispatch=useDispatch();
   const [products, getProducts] = useState([]);
+  const productsCart = useSelector((state) => state.cart);
+
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products?limit=15')
@@ -13,10 +15,14 @@ const dispatch=useDispatch();
       .then(result => getProducts(result));
   }, []);
    
-  const addingToCart=(product)=>{
-dispatch(add(product))
-  }
-
+  const addingToCart = (product) => {
+    const isProductInCart = productsCart.some((item) => item.id === product.id);
+    if (!isProductInCart) {
+      dispatch(add(product));
+    }
+  };
+  
+  
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4 marg" >
       {products.map(product => (
