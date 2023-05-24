@@ -8,10 +8,11 @@ import Carousel from './components/Carousel';
 import {Routes, Route } from 'react-router-dom';
 
 function App() {
+
   return (
  
-    <>
-    <NavBar/>
+    <div >
+    <NavBar />
    <Routes>
     <Route path='/' element={
       <div style={{margin:'5px',}}>
@@ -34,7 +35,7 @@ function App() {
     
     }/>
     </Routes>
-   </>
+   </div>
   );
 }
 

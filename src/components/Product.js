@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Text } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux';
+import { add } from '../store/cartSlice';
+
 function Product() {
+const dispatch=useDispatch();
   const [products, getProducts] = useState([]);
 
   useEffect(() => {
@@ -8,6 +12,10 @@ function Product() {
       .then(data => data.json())
       .then(result => getProducts(result));
   }, []);
+   
+  const addingToCart=(product)=>{
+dispatch(add(product))
+  }
 
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4 marg" >
@@ -21,7 +29,7 @@ function Product() {
               <Text color='blue.600' fontSize='2xl' >
              <b>Price: </b> ${product.price}
             </Text>
-              <button type="button" className="btn btn-primary btn-sm">Add To Cart</button>
+              <button onClick={()=>addingToCart(product)} type="button" className="btn btn-primary btn-sm">Add To Cart</button>
             </div>
           </div>
         </div>

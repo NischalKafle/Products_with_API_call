@@ -12,8 +12,10 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector } from 'react-redux';
 
-function NavScrollExample() {
+function NavBar() {
+  const cartProduct=useSelector(state=>state.cart)
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -29,7 +31,7 @@ function NavScrollExample() {
             
           </Nav>
           <Nav.Link to='/cart' as={Link}>
-          <FontAwesomeIcon icon={faShoppingCart} />: 0
+          <FontAwesomeIcon icon={faShoppingCart} /> : {cartProduct.length}
           </Nav.Link>
          
         </Navbar.Collapse>
@@ -38,4 +40,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export default NavBar;

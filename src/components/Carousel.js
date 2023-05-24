@@ -2,7 +2,7 @@ import React from 'react'
 
 function Carousel() {
   return (
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',position:'relative'}}>
     <div class="card" style={{width: '18rem',border:'none',marginTop:'5px'}}>
     <img src="../img/loc.jpg" class="card-img-top" alt="..." style={{borderRadius:'50%',height:'300px',width:'300px',objectFit:'cover'}}/>
     <div class="card-body">
